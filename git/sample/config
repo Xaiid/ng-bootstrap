@@ -1,0 +1,16 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = https://github.com/Xaiid/ng-bootstrap.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[remote "main"]
+	url = git@github.com:ng-bootstrap/ng-bootstrap.git
+	fetch = +refs/heads/*:refs/remotes/main/*
+[branch "master"]
+	remote = main
+	merge = refs/heads/master

@@ -84,11 +84,15 @@ export class NgbModalRef {
 
   private _removeModalElements() {
     const windowNativeEl = this._windowCmptRef.location.nativeElement;
+    windowNativeEl.classList.remove('fadeIn');
+    windowNativeEl.classList.add('fadeOut');
     windowNativeEl.parentNode.removeChild(windowNativeEl);
     this._windowCmptRef.destroy();
 
     if (this._backdropCmptRef) {
       const backdropNativeEl = this._backdropCmptRef.location.nativeElement;
+      backdropNativeEl.classList.remove('fadeIn');
+      backdropNativeEl.classList.add('fadeOut');
       backdropNativeEl.parentNode.removeChild(backdropNativeEl);
       this._backdropCmptRef.destroy();
     }
