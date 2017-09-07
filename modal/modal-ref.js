@@ -84,7 +84,7 @@ var NgbModalRef = (function () {
             windowNativeEl.parentNode.removeChild(windowNativeEl);
             _this._windowCmptRef.destroy();
             _this._windowCmptRef = null;
-        });
+        }, 500);
         if (this._backdropCmptRef) {
             var backdropNativeEl_1 = this._backdropCmptRef.location.nativeElement;
             backdropNativeEl_1.classList.remove('fadeIn');

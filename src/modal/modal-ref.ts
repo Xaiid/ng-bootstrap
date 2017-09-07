@@ -91,7 +91,7 @@ export class NgbModalRef {
       windowNativeEl.parentNode.removeChild(windowNativeEl);
       this._windowCmptRef.destroy();
       this._windowCmptRef = null;
-    });
+    }, 500);
 
     if (this._backdropCmptRef) {
       const backdropNativeEl = this._backdropCmptRef.location.nativeElement;
