@@ -4194,23 +4194,26 @@ var NgbModalRef = (function () {
         }
     };
     NgbModalRef.prototype._removeModalElements = function () {
+        var _this = this;
         var windowNativeEl = this._windowCmptRef.location.nativeElement;
         windowNativeEl.classList.remove('fadeIn');
         windowNativeEl.classList.add('fadeOut');
         windowNativeEl.parentNode.removeChild(windowNativeEl);
         this._windowCmptRef.destroy();
         if (this._backdropCmptRef) {
-            var backdropNativeEl = this._backdropCmptRef.location.nativeElement;
-            backdropNativeEl.classList.remove('fadeIn');
-            backdropNativeEl.classList.add('fadeOut');
-            backdropNativeEl.parentNode.removeChild(backdropNativeEl);
-            this._backdropCmptRef.destroy();
+            var backdropNativeEl_1 = this._backdropCmptRef.location.nativeElement;
+            backdropNativeEl_1.classList.remove('fadeIn');
+            backdropNativeEl_1.classList.add('fadeOut');
+            setTimeout(function () {
+                backdropNativeEl_1.parentNode.removeChild(backdropNativeEl_1);
+                _this._backdropCmptRef.destroy();
+                _this._backdropCmptRef = null;
+            }, 800);
         }
         if (this._contentRef && this._contentRef.viewRef) {
             this._contentRef.viewRef.destroy();
         }
         this._windowCmptRef = null;
-        this._backdropCmptRef = null;
         this._contentRef = null;
     };
     return NgbModalRef;
