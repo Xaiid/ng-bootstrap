@@ -86,8 +86,12 @@ export class NgbModalRef {
     const windowNativeEl = this._windowCmptRef.location.nativeElement;
     windowNativeEl.classList.remove('fadeIn');
     windowNativeEl.classList.add('fadeOut');
-    windowNativeEl.parentNode.removeChild(windowNativeEl);
-    this._windowCmptRef.destroy();
+
+    setTimeout(() => {
+      windowNativeEl.parentNode.removeChild(windowNativeEl);
+      this._windowCmptRef.destroy();
+      this._windowCmptRef = null;
+    });
 
     if (this._backdropCmptRef) {
       const backdropNativeEl = this._backdropCmptRef.location.nativeElement;
@@ -104,7 +108,6 @@ export class NgbModalRef {
       this._contentRef.viewRef.destroy();
     }
 
-    this._windowCmptRef = null;
     this._contentRef = null;
   }
 }

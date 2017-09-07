@@ -4198,8 +4198,11 @@ var NgbModalRef = (function () {
         var windowNativeEl = this._windowCmptRef.location.nativeElement;
         windowNativeEl.classList.remove('fadeIn');
         windowNativeEl.classList.add('fadeOut');
-        windowNativeEl.parentNode.removeChild(windowNativeEl);
-        this._windowCmptRef.destroy();
+        setTimeout(function () {
+            windowNativeEl.parentNode.removeChild(windowNativeEl);
+            _this._windowCmptRef.destroy();
+            _this._windowCmptRef = null;
+        });
         if (this._backdropCmptRef) {
             var backdropNativeEl_1 = this._backdropCmptRef.location.nativeElement;
             backdropNativeEl_1.classList.remove('fadeIn');
@@ -4213,7 +4216,6 @@ var NgbModalRef = (function () {
         if (this._contentRef && this._contentRef.viewRef) {
             this._contentRef.viewRef.destroy();
         }
-        this._windowCmptRef = null;
         this._contentRef = null;
     };
     return NgbModalRef;
