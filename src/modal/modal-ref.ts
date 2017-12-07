@@ -90,9 +90,9 @@ export class NgbModalRef {
     setTimeout(() => {
       if (windowNativeEl && windowNativeEl.parentNode) {
         windowNativeEl.parentNode.removeChild(windowNativeEl);
-        this._windowCmptRef.destroy();
-        this._windowCmptRef = null;
       }
+      this._windowCmptRef.destroy();
+      this._windowCmptRef = null;
     }, 500);
 
     if (this._backdropCmptRef) {
@@ -102,9 +102,9 @@ export class NgbModalRef {
       setTimeout(() => {
         if (backdropNativeEl && backdropNativeEl.parentNode) {
           backdropNativeEl.parentNode.removeChild(backdropNativeEl);
-          this._backdropCmptRef.destroy();
-          this._backdropCmptRef = null;
         }
+        this._backdropCmptRef.destroy();
+        this._backdropCmptRef = null;
       }, 800);
     }
 

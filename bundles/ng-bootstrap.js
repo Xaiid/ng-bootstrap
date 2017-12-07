@@ -4185,9 +4185,9 @@ var NgbModalRef = (function () {
         setTimeout(function () {
             if (windowNativeEl && windowNativeEl.parentNode) {
                 windowNativeEl.parentNode.removeChild(windowNativeEl);
-                _this._windowCmptRef.destroy();
-                _this._windowCmptRef = null;
             }
+            _this._windowCmptRef.destroy();
+            _this._windowCmptRef = null;
         }, 500);
         if (this._backdropCmptRef) {
             var backdropNativeEl_1 = this._backdropCmptRef.location.nativeElement;
@@ -4196,9 +4196,9 @@ var NgbModalRef = (function () {
             setTimeout(function () {
                 if (backdropNativeEl_1 && backdropNativeEl_1.parentNode) {
                     backdropNativeEl_1.parentNode.removeChild(backdropNativeEl_1);
-                    _this._backdropCmptRef.destroy();
-                    _this._backdropCmptRef = null;
                 }
+                _this._backdropCmptRef.destroy();
+                _this._backdropCmptRef = null;
             }, 800);
         }
         if (this._contentRef && this._contentRef.viewRef) {
