@@ -4186,7 +4186,9 @@ var NgbModalRef = (function () {
             if (windowNativeEl && windowNativeEl.parentNode) {
                 windowNativeEl.parentNode.removeChild(windowNativeEl);
             }
-            _this._windowCmptRef.destroy();
+            if (_this._windowCmptRef && _this._windowCmptRef.destroy) {
+                _this._windowCmptRef.destroy();
+            }
             _this._windowCmptRef = null;
         }, 500);
         if (this._backdropCmptRef) {
@@ -4197,7 +4199,9 @@ var NgbModalRef = (function () {
                 if (backdropNativeEl_1 && backdropNativeEl_1.parentNode) {
                     backdropNativeEl_1.parentNode.removeChild(backdropNativeEl_1);
                 }
-                _this._backdropCmptRef.destroy();
+                if (_this._backdropCmptRef && _this._backdropCmptRef.destroy) {
+                    _this._backdropCmptRef.destroy();
+                }
                 _this._backdropCmptRef = null;
             }, 800);
         }

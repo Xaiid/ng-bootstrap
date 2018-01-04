@@ -91,7 +91,9 @@ export class NgbModalRef {
       if (windowNativeEl && windowNativeEl.parentNode) {
         windowNativeEl.parentNode.removeChild(windowNativeEl);
       }
-      this._windowCmptRef.destroy();
+      if (this._windowCmptRef && this._windowCmptRef.destroy) {
+        this._windowCmptRef.destroy();
+      }
       this._windowCmptRef = null;
     }, 500);
 
@@ -103,7 +105,9 @@ export class NgbModalRef {
         if (backdropNativeEl && backdropNativeEl.parentNode) {
           backdropNativeEl.parentNode.removeChild(backdropNativeEl);
         }
-        this._backdropCmptRef.destroy();
+        if (this._backdropCmptRef && this._backdropCmptRef.destroy) {
+          this._backdropCmptRef.destroy();
+        }
         this._backdropCmptRef = null;
       }, 800);
     }

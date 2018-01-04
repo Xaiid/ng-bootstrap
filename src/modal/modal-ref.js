@@ -1,10 +1,17 @@
-import { Injectable, ComponentRef } from '@angular/core';
-import { ContentRef } from '../util/popup';
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+exports.__esModule = true;
+var core_1 = require("@angular/core");
 /**
  * A reference to an active (currently opened) modal. Instances of this class
  * can be injected into components passed as modal content.
  */
-var NgbActiveModal = (function () {
+var NgbActiveModal = /** @class */ (function () {
     function NgbActiveModal() {
     }
     /**
@@ -15,18 +22,16 @@ var NgbActiveModal = (function () {
      * Can be used to dismiss a modal, passing an optional reason.
      */
     NgbActiveModal.prototype.dismiss = function (reason) { };
+    NgbActiveModal = __decorate([
+        core_1.Injectable()
+    ], NgbActiveModal);
     return NgbActiveModal;
 }());
-export { NgbActiveModal };
-NgbActiveModal.decorators = [
-    { type: Injectable },
-];
-/** @nocollapse */
-NgbActiveModal.ctorParameters = function () { return []; };
+exports.NgbActiveModal = NgbActiveModal;
 /**
  * A reference to a newly opened modal.
  */
-var NgbModalRef = (function () {
+var NgbModalRef = /** @class */ (function () {
     function NgbModalRef(_windowCmptRef, _contentRef, _backdropCmptRef, _beforeDismiss) {
         var _this = this;
         this._windowCmptRef = _windowCmptRef;
@@ -82,11 +87,9 @@ var NgbModalRef = (function () {
         windowNativeEl.classList.add('fadeOut');
         setTimeout(function () {
             if (windowNativeEl && windowNativeEl.parentNode) {
-              windowNativeEl.parentNode.removeChild(windowNativeEl);
+                windowNativeEl.parentNode.removeChild(windowNativeEl);
             }
-            if(_this._windowCmptRef && _this._windowCmptRef.destroy){
-              _this._windowCmptRef.destroy();
-            }
+            _this._windowCmptRef.destroy();
             _this._windowCmptRef = null;
         }, 500);
         if (this._backdropCmptRef) {
@@ -95,11 +98,9 @@ var NgbModalRef = (function () {
             backdropNativeEl_1.classList.add('fadeOut');
             setTimeout(function () {
                 if (backdropNativeEl_1 && backdropNativeEl_1.parentNode) {
-                  backdropNativeEl_1.parentNode.removeChild(backdropNativeEl_1);
+                    backdropNativeEl_1.parentNode.removeChild(backdropNativeEl_1);
                 }
-                if(_this._backdropCmptRef && _this._backdropCmptRef.destroy){
-                  _this._backdropCmptRef.destroy();
-                }
+                _this._backdropCmptRef.destroy();
                 _this._backdropCmptRef = null;
             }, 800);
         }
@@ -108,17 +109,9 @@ var NgbModalRef = (function () {
         }
         this._contentRef = null;
     };
+    NgbModalRef = __decorate([
+        core_1.Injectable()
+    ], NgbModalRef);
     return NgbModalRef;
 }());
-export { NgbModalRef };
-NgbModalRef.decorators = [
-    { type: Injectable },
-];
-/** @nocollapse */
-NgbModalRef.ctorParameters = function () { return [
-    { type: ComponentRef, },
-    { type: ContentRef, },
-    { type: ComponentRef, },
-    { type: Function, },
-]; };
-//# sourceMappingURL=modal-ref.js.map
+exports.NgbModalRef = NgbModalRef;
