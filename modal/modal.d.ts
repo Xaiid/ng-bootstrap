@@ -1,4 +1,4 @@
-import { Injector, ComponentFactoryResolver } from '@angular/core';
+import { Injector } from '@angular/core';
 import { NgbModalStack } from './modal-stack';
 import { NgbModalRef } from './modal-ref';
 /**
@@ -41,10 +41,8 @@ export interface NgbModalOptions {
  * the "open" method!
  */
 export declare class NgbModal {
-    private _moduleCFR;
-    private _injector;
     private _modalStack;
-    constructor(_moduleCFR: ComponentFactoryResolver, _injector: Injector, _modalStack: NgbModalStack);
+    constructor(_modalStack: NgbModalStack);
     /**
      * Opens a new modal window with the specified content and using supplied options. Content can be provided
      * as a TemplateRef or a component type. If you pass a component type as content than instances of those
